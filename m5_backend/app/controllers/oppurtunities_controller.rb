@@ -1,0 +1,2 @@
+class OppurtunitiesController < ApplicationController
+end

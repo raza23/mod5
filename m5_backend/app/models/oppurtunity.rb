@@ -1,0 +1,2 @@
+class Oppurtunity < ApplicationRecord
+end
