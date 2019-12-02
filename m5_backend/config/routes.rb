@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
-  resources :logs
-  resources :oppurtunities
-  resources :organizations
-  resources :users
-  post '/login', to: 'auth#login'
-  get '/auth', to: 'auth#persist'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      resources :organizations
+      resources :users
+      resources :oppurtunity
+      post '/userlogin', to: 'auth#UserCreate'
+      get '/userprofile', to: 'auth#UserProfile'
+
+      post '/orglogin', to: 'auth#OrgCreate'
+      get '/orgprofile', to: 'auth#OrgProfile'
+      # post '/login', to: 'auth#createOrg'
+
+      # get '/profile', to: 'auth#OrgProfile'
+
+
+    end
+  end
 end

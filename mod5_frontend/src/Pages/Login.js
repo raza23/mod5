@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import userActions from '../redux/actions';
+import {connect} from 'react-redux'
 
 const LoginPage = props => {
   // initializing dispatch
@@ -16,6 +17,7 @@ const LoginPage = props => {
     e.preventDefault();
     dispatch(userActions.loginUserToDB(loginForm));
     props.history.push('/');
+    // debugger
   };
 
   const handleChange = e =>
@@ -47,4 +49,6 @@ const LoginPage = props => {
   );
 };
 
-export default LoginPage;
+const mapStateToProps = (state) => ({stateObj: state})
+
+export default connect(mapStateToProps)(LoginPage);
