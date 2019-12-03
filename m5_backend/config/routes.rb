@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :organizations
       resources :users
       resources :oppurtunity
+      resources :logs
       post '/userlogin', to: 'auth#UserCreate'
       get '/userprofile', to: 'auth#UserProfile'
 
