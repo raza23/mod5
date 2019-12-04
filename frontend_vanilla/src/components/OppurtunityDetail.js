@@ -1,13 +1,45 @@
 import React from "react";
 // import { Link } from "react-router-dom";
+const Log_URL = 'http://localhost:3000/api/v1/logs'
 
 class OppurtunityDetail extends React.Component {
+  state = {
+    logs: this.props.logs
+  }
+
+  SignUp = (newSignup) => {
+    console.log('click')
+    const signup = {
+      clockin: '',
+      clockout: '',
+      oppurtunity: this.props.oppurtunity,
+      user: this.props.user
+    }
+  
+  fetch(Log_URL, {
+    method: 'POST',
+    headers: {
+      "Authorization": `Bearer ${localStorage.jwt}`,
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+      body: JSON.stringify(signup)})
+      .then(res => res.json())
+      .then(newSignup => 
+        
+        {this.setState({logs:[...this.state.logs,newSignup]})})
+
+        // debugger
+  }
+
+
+
   render() {
     console.log(this.props)
     return (
       <div>
       <h1>{this.props.oppurtunity.description}</h1>
-      <button>Click to Sign Up:{this.props.oppurtunity.volunteers_needed}</button>
+      <button onClick={this.SignUp}>Click to Sign Up:{this.props.oppurtunity.volunteers_needed}</button>
       </div>
       );
     }

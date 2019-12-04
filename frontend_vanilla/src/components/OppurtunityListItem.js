@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
     
     
     render() {
-      // console.log(this.props)
+      console.log(this.props)
       let organization = this.props.orgs.filter(organization => organization.id === this.props.opp.organization_id)
       let organization_name = organization.map(org => org.name)
       // console.log(organization_name)
@@ -33,7 +33,8 @@ import { Link } from "react-router-dom";
     <div className="content">
       <h2>{this.props.opp.description} on {this.props.opp.date}</h2>
       <em>
-        {organization_name}
+        {/* {organization_name} */}
+        {this.props.opp.organization.name}
       </em>
     </div>
   </Link>

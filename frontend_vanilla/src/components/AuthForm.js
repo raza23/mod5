@@ -15,7 +15,7 @@ class AuthForm extends React.Component {
     }
 
     handleSubmit = (e) => {
-        debugger
+        // debugger
         e.preventDefault()
         const reqObj = {
           method: 'POST', 
@@ -33,7 +33,7 @@ class AuthForm extends React.Component {
             localStorage.setItem("jwt", data.token)
             
             this.props.onChangeUser(data.user)
-            this.props.history.push('/profile')
+            this.props.history.push('/Home')
             // /home
         })
       }

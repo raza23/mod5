@@ -2,7 +2,7 @@ class Api::V1::OppurtunityController < ApplicationController
     
         def index
             oppurtunities = Oppurtunity.all
-            render json: oppurtunities
+            render json: oppurtunities, include: [:organization]
         end
     
         # def profile
