@@ -43,7 +43,7 @@ class LogList extends React.Component {
     render() {
         const mylogs = this.props.logs.filter(log => log.user_id === this.props.user.id)
         const indLogs = mylogs.map(oneLog => {
-            return <LogItem  user={this.props.user} key={oneLog.id} {...oneLog} />
+            return <LogItem logs={this.props.logs} user={this.props.user} key={oneLog.id} {...oneLog} />
         })
         console.log(this.props)
         console.log(mylogs)
@@ -52,8 +52,9 @@ class LogList extends React.Component {
     // const name = this.props.user === undefined || null ?  (<div></div>) : this.props.user.name
     return (
         <div>
-
+            <h2>Please record your times.</h2>
             {indLogs} 
+            <h4>NaN indicates no record</h4>
         </div>
       );
     }

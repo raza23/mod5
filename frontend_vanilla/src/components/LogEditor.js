@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import {For,Button} from 'semantic-ui-react'
 
 class LogEditor extends Component {
 
   state = {
-    clockin: 'Clock In Time',
-    clockout:  'Clockout Time'
+    clockin: 'H:mm',
+    clockout:  'H:mm'
 
   }
 
@@ -23,7 +24,7 @@ class LogEditor extends Component {
   render() {
     console.log(this.props)
     return (
-      <form className="note-editor">
+      <form class="ui form">
          <input type="text" name="clockin" value = {this.state.clockin} onChange={this.handleClockinChange}/>
         <input type="text" name="clockout" value = {this.state.clockout} onChange={this.handleClockoutChange}/>
 

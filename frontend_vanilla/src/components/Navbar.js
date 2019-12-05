@@ -1,9 +1,19 @@
 import React from "react";
 import { Link, NavLink, withRouter } from "react-router-dom";
 
-const Navbar = () => {
+// const Navbar = (props) => {
+//   console.log(props)
 
-//   handleLogOut = () => {
+class Navbar extends React.Component {
+  
+  // componentWillMount() {
+  //   if (sessionStorage.getItem('jwt'))
+  //     this.props.loginSuccess();
+  // }
+
+  // render() {
+    
+    //   handleLogOut = () => {
 //     localStorage.clear()
 //     this.props.history.push('/home')
 // }
@@ -13,16 +23,19 @@ const Navbar = () => {
 //     onClick={this.handleLogOut} /> : <Menu.Item name='login' id='login' 
 //     active={this.state.activeItem === 'login'} onClick={this.handleClick} />
 // }
+render() {
+  console.log("logged_in: ", this.props);
+  
   return (
     <div className="ui inverted red menu">
-      <Link to="/about" className="item">
+      <Link to="/Home" className="item">
         <h2 className="ui header">
-          <div className="content">Volunteer</div>
+          <div className="content">DTRT</div>
           <div className="sub header"></div>
         </h2>
       </Link>
       <NavLink to="/" activeClassName="active item" className="item">
-        <h3 className="ui header">Login</h3>
+        <h3 className="ui header">Logout</h3>
       </NavLink>
       <NavLink exact to="/Home" activeClassName="active item" className="item">
         <h3 className="ui header">Home</h3>
@@ -32,7 +45,7 @@ const Navbar = () => {
       </NavLink>
     </div>
   );
-};
+}}
 
 const NavBarWithRouter = withRouter(Navbar);
 

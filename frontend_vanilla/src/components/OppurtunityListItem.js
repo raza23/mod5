@@ -24,8 +24,8 @@ import { Link } from "react-router-dom";
     
     render() {
       console.log(this.props)
-      let organization = this.props.orgs.filter(organization => organization.id === this.props.opp.organization_id)
-      let organization_name = organization.map(org => org.name)
+      // let organization = this.props.orgs.filter(organization => organization.id === this.props.opp.organization_id)
+      // let organization_name = organization.map(org => org.name)
       // console.log(organization_name)
       return (
         

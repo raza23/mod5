@@ -175,8 +175,8 @@ render() {
   // let user = this.state.currentUser === null ? null : this.state.currentUser
   return (
     <div>
-      <NavBar />
-      <Header user={this.state.currentUser} />
+      <NavBar user={this.state.currentUser} />
+      {/* <Header user={this.state.currentUser} /> */}
       <Switch>
       <Route path="/" exact component={Main} />
           <Route exact path='/login_user' render={() => <AuthForm onChangeUser={this.onChangeUser}/>} />

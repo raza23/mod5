@@ -1,6 +1,9 @@
 import React from "react";
+import { withRouter } from 'react-router-dom';
+
 // import { Link } from "react-router-dom";
 const Log_URL = 'http://localhost:3000/api/v1/logs'
+
 
 class OppurtunityDetail extends React.Component {
   state = {
@@ -8,6 +11,7 @@ class OppurtunityDetail extends React.Component {
   }
 
   SignUp = (newSignup) => {
+    debugger
     console.log('click')
     const signup = {
       clockin: '',
@@ -17,6 +21,7 @@ class OppurtunityDetail extends React.Component {
     }
   
   fetch(Log_URL, {
+    
     method: 'POST',
     headers: {
       "Authorization": `Bearer ${localStorage.jwt}`,
@@ -28,6 +33,7 @@ class OppurtunityDetail extends React.Component {
       .then(newSignup => 
         
         {this.setState({logs:[...this.state.logs,newSignup]})})
+        this.props.history.push('/logs')
 
         // debugger
   }
@@ -39,13 +45,15 @@ class OppurtunityDetail extends React.Component {
     return (
       <div>
       <h1>{this.props.oppurtunity.description}</h1>
-      <button onClick={this.SignUp}>Click to Sign Up:{this.props.oppurtunity.volunteers_needed}</button>
+
+      <h2>Organization: {this.props.oppurtunity.organization.name}</h2>
+      <button onClick={this.SignUp}>Click to Sign Up</button>
       </div>
       );
     }
   }
   
-  export default OppurtunityDetail;
+  export default withRouter(OppurtunityDetail);
 
 
 // / // import { Link } from "react-router-dom";

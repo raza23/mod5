@@ -11,6 +11,14 @@ class Api::V1::LogsController < ApplicationController
             @log.update( clockin: params["log"]["clockin"],clockout: params["log"]["clockout"])
             render json: @log, status: 200
           end
+          def destroy
+            
+            # byebug
+            @log=Log.find_by(id:params["id"])
+            # byebug
+            @log.destroy
+            render json: @log
+          end
     
         def create
             # byebug
