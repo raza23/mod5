@@ -11,7 +11,7 @@ class OppurtunityDetail extends React.Component {
   }
 
   SignUp = (newSignup) => {
-    debugger
+    // debugger
     console.log('click')
     const signup = {
       clockin: '',
@@ -33,7 +33,8 @@ class OppurtunityDetail extends React.Component {
       .then(newSignup => 
         
         {this.setState({logs:[...this.state.logs,newSignup]})})
-        this.props.history.push('/logs')
+        this.props.history.push('/Home')
+        window.location.reload()
 
         // debugger
   }

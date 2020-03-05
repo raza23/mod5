@@ -4,8 +4,10 @@ import {For,Button} from 'semantic-ui-react'
 class LogEditor extends Component {
 
   state = {
-    clockin: 'H:mm',
-    clockout:  'H:mm'
+    // clockin: 'H:mm',
+    // clockout:  'H:mm'
+    clockin: this.props.log.clockin !== '' ? this.props.log.clockin : 'H:mm',
+    clockout: this.props.log.clockout !== '' ? this.props.log.clockout : 'H:mm'
 
   }
 

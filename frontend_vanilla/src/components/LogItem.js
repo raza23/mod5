@@ -54,15 +54,7 @@ class LogItem extends React.Component {
             window.location.reload()
         }
     
-        // detail = (id) => {
-            
-        //     this.setState({
-                
-        //       selectedlog: this.props.logs.find(log => log.id === id),
-        //       // selectedNote: note,
-        //       edit: false
-        //     })
-        //   }
+        
       
       handleLog = () => {
           console.log('hey')
@@ -71,12 +63,12 @@ class LogItem extends React.Component {
         }))
       }
 
-    // handleClick = 
+    
 
     render() {
         const clockin = this.props.clockin === '' ? 'Please ClockIn' : this.props.clockin
         const clockout = this.props.clockout === '' ? 'Please ClockOut' : this.props.clockout
-        console.log(this.state)
+        console.log(this.props)
        
         // parse time using 24-hour clock and use UTC to prevent DST issues
 var start = moment.utc(this.props.clockin, "hh:mm");
@@ -94,15 +86,16 @@ var d = moment.duration(end.diff(start));
 // format a string result
 var s = moment.utc(+d).format('h:mm');
 console.log(s)
+// console.log(s)
 
     return (
-    //   <Fragment>
+    
     <div class="ui segment">
 
-        <h3><button class="ui positive button,ui huge button"  onClick={this.handleLog}>{this.props.oppurtunity.date} - {this.props.oppurtunity.description} -  {s=== 'Invalid date'  ? {clockin} - {clockout} : s} </button> <button class="ui negative button,ui big button" onClick={() => this.DeleteLog()}>Delete</button> </h3>
-        {this.state.edit ? <LogEditor saveEdit={this.saveEditLog} user={this.props.user} logid={this.props.id} handleLog={this.handleLog}/> : null}
+        <h3><button class="ui positive button,ui huge button"  onClick={this.handleLog}>{this.props.oppurtunity.date} - {this.props.oppurtunity.description} {s=== 'Invalid date'  ? {clockin} - {clockout} : s}  </button> <button class="ui negative button,ui big button" onClick={() => this.DeleteLog()}>Delete</button> </h3>
+        {this.state.edit ? <LogEditor log={this.props} saveEdit={this.saveEditLog} user={this.props.user} logid={this.props.id} handleLog={this.handleLog}/> : null}
     </div>
-    //   </Fragment>
+    
     );
   }}
 

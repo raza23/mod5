@@ -34,7 +34,7 @@ import { Link } from "react-router-dom";
       <h2>{this.props.opp.description} on {this.props.opp.date}</h2>
       <em>
         {/* {organization_name} */}
-        {this.props.opp.organization.name}
+        {this.props.opp.organization.name} - {this.props.opp.organization.description}
       </em>
     </div>
   </Link>

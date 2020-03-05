@@ -8,36 +8,36 @@ class LogList extends React.Component {
         edit: false
     }
 
-    SaveEditLog = (editLogID,editclockin,editclockout) => {
-        // debugger
-        const log = {
+    // SaveEditLog = (editLogID,editclockin,editclockout) => {
+    //     // debugger
+    //     const log = {
           
           
-          clockin: editclockin,
-          clockout: editclockout,
+    //       clockin: editclockin,
+    //       clockout: editclockout,
          
-          user: this.props.user
+    //       user: this.props.user
           
-          }
-          fetch(`http://localhost:3001/api/v1/notes/${editLogID}`, {
+    //       }
+    //       fetch(`http://localhost:3001/api/v1/notes/${editLogID}`, {
             
-            method: 'PATCH',
-            headers: {
+    //         method: 'PATCH',
+    //         headers: {
               
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
+    //           'Content-Type': 'application/json',
+    //           'Accept': 'application/json'
+    //         },
             
-            body: JSON.stringify(log)
-          }).then(console.log('editted'))
-          }
+    //         body: JSON.stringify(log)
+    //       }).then(console.log('editted'))
+    //       }
       
       
-      handleLog = () => {
-        this.setState(state => ({
-          edit: !state.edit
-        }))
-      }
+    //   handleLog = () => {
+    //     this.setState(state => ({
+    //       edit: !state.edit
+    //     }))
+    //   }
     
     
     render() {
