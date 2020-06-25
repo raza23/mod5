@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_154457) do
+ActiveRecord::Schema.define(version: 2020_06_25_110250) do
 
   create_table "logs", force: :cascade do |t|
     t.string "clockin"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_154457) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.integer "oppurtunity_id"
+    t.boolean "confirmed", default: false
     t.index ["oppurtunity_id"], name: "index_logs_on_oppurtunity_id"
     t.index ["user_id"], name: "index_logs_on_user_id"
   end
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_154457) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "user_type", default: "volunteer"
   end
 
   add_foreign_key "logs", "oppurtunities"

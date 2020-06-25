@@ -6,13 +6,17 @@ import { Link, NavLink, withRouter } from "react-router-dom";
 
 class Navbar extends React.Component {
   render() {
-    console.log("logged_in: ", this.props);
+    console.log("logged_in: ", this.props.user);
 
     return (
       <div className="ui inverted dark blue menu">
         <Link to="/Home" className="item">
           <h2 className="ui header">
-            <div className="content">MASS VOLUNTEER</div>
+            {this.props.user && this.props.user.user_type === "volunteer" ? (
+              <div className="content">MASS VOLUNTEER</div>
+            ) : (
+              <div className="content">MASS Admin</div>
+            )}
             <div className="sub header"></div>
           </h2>
         </Link>
